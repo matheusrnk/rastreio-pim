@@ -98,7 +98,6 @@ def main():
         
         x_values = list(range(len(methods_tables[meth])))
 
-        # Create the plot
         plt.figure(figsize=(10, 5))
         plt.plot(x_values, min_values, label='Min Values', marker='o', linestyle='-', color='b')
         plt.plot(x_values, max_values, label='Max Values', marker='o', linestyle='-', color='r')
