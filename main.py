@@ -1,8 +1,8 @@
 import cv2 as cv
-from matplotlib import pyplot as plt
+import glob
 import matplotlib.animation as animation
 from PIL import Image
-import glob
+from matplotlib import pyplot as plt
 
 
 def load_images() -> list:
@@ -83,48 +83,35 @@ def main():
             
             fig, ax = plt.subplots()
 
-            # Plot the image on the axis
             ax.imshow(img, cmap='gray')
 
-            # Remove axis for clean image
             ax.axis('off')
 
-            # Save the image
             fig.savefig(f'rastreio/{meth}/rast_{img_ind:04}.png', bbox_inches='tight', pad_inches=0)
 
-            # Close the figure to free up memory
             plt.close(fig)
 
     # Gera os gráficos de cada método
     for meth in methods:
         min_values = [t[0] for t in methods_tables[meth]]
         max_values = [t[1] for t in methods_tables[meth]]
-
-        # Generate x-axis values (indices of the list)
+        
         x_values = list(range(len(methods_tables[meth])))
 
         # Create the plot
         plt.figure(figsize=(10, 5))
         plt.plot(x_values, min_values, label='Min Values', marker='o', linestyle='-', color='b')
         plt.plot(x_values, max_values, label='Max Values', marker='o', linestyle='-', color='r')
-
-        # Fill the area between min and max values
-        #plt.fill_between(x_values, min_values, max_values, color='lightgray', alpha=0.5)
-
-        # Add labels and title
         plt.xlabel('Index')
         plt.ylabel('Value')
         plt.title(meth)
         plt.legend()
-
-        # Show the plot
         plt.show()
 
     #############################################################
 
     # Gera as imagens de cada método
     for meth in methods:
-        # Load images
         images = [Image.open(img) for img in sorted(glob.glob(f'rastreio/{meth}/rast_*.png'))]
 
         fig = plt.figure()
@@ -138,7 +125,6 @@ def main():
 
         plt.show()
 
-        # Save the animation
         ani.save(f"animations/animation_{meth}.gif")
 
 
