@@ -1,3 +1,18 @@
+video.mp4
+
+animations/*
+
+quadros/*
+
+rastreio/cv.TM_CCOEFF/*
+rastreio/cv.TM_CCOEFF_NORMED/*
+rastreio/cv.TM_CCORR/*
+rastreio/cv.TM_CCORR_NORMED/*
+rastreio/cv.TM_SQDIFF/*
+rastreio/cv.TM_SQDIFF_NORMED/*
+
+.lprof/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
