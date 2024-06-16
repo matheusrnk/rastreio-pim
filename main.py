@@ -1,6 +1,7 @@
 import cv2 as cv
 import glob
 import matplotlib.animation as animation
+from joblib import Parallel, delayed
 from PIL import Image
 from matplotlib import pyplot as plt
 
